@@ -1099,3 +1099,11 @@ define Device/zyxel_keenetic-extra-ii
 	check-size | zyimage -d 6162 -v "ZyXEL Keenetic Extra II"
 endef
 TARGET_DEVICES += zyxel_keenetic-extra-ii
+
+define Device/fenvi_wd204a
+  IMAGE_SIZE := 7808k
+  DEVICE_VENDOR := Fenvi
+  DEVICE_MODEL := Fenvi WD204A AC1200 
+  DEVICE_PACKAGES := kmod-mt76x2
+endef
+TARGET_DEVICES += fenvi_wd204a
