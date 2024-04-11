@@ -34,7 +34,7 @@
 			label = "green:wlan2g";
 			color = <LED_COLOR_ID_GREEN>;
 			gpios = <&gpio 44 GPIO_ACTIVE_LOW>;
-			linux,default-trigger = "phy0tpt";
+			linux,default-trigger = "phy0tx";
 		};
 	};
 
@@ -114,14 +114,6 @@
 	};
 };
 
-&ehci {
-	status = "disabled";
-};
-
-&ohci {
-	status = "disabled";
-};
-
 &ethernet {
 	nvmem-cells = <&macaddr_factory_4>;
 	nvmem-cell-names = "mac-address";
@@ -145,5 +137,10 @@
 		nvmem-cells = <&eeprom_factory_8000>;
 		nvmem-cell-names = "eeprom";
 		ieee80211-freq-limit = <5000000 6000000>;
+
+		led {
+			led-sources = <2>;
+			led-active-low;
+		};
 	};
 };

@@ -20,11 +20,12 @@ Signed-off-by: Daniel Palmer <daniel@0x0f.com>
 
 --- a/drivers/mtd/spi-nor/Makefile
 +++ b/drivers/mtd/spi-nor/Makefile
-@@ -19,6 +19,7 @@
+@@ -19,7 +19,8 @@
  spi-nor-objs			+= xilinx.o
  spi-nor-objs			+= xmc.o
  spi-nor-objs			+= xtx.o
 +spi-nor-objs			+= zbit.o
+ spi-nor-$(CONFIG_DEBUG_FS)	+= debugfs.o
  obj-$(CONFIG_MTD_SPI_NOR)	+= spi-nor.o
  
  obj-$(CONFIG_MTD_SPI_NOR)	+= controllers/
@@ -62,10 +63,10 @@ Signed-off-by: Daniel Palmer <daniel@0x0f.com>
 +
 +static const struct flash_info zbit_parts[] = {
 +	/* zbit */
-+	{ "zb25vq64", INFO(0x5e4017, 0, 64 * 1024, 128,
-+			    SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
-+	{ "zb25vq128", INFO(0x5e4018, 0, 64 * 1024, 256,
-+			    SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
++	{ "zb25vq64", INFO(0x5e4017, 0, 64 * 1024, 128)
++			    NO_SFDP_FLAGS(SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
++	{ "zb25vq128", INFO(0x5e4018, 0, 64 * 1024, 256)
++			   NO_SFDP_FLAGS(SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
 +			    SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB) },
 +};
 +

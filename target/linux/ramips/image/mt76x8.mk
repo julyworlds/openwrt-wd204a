@@ -1104,6 +1104,6 @@ define Device/fenvi_wd204a
   IMAGE_SIZE := 7808k
   DEVICE_VENDOR := Fenvi
   DEVICE_MODEL := Fenvi WD204A AC1200 
-  DEVICE_PACKAGES := kmod-mt76x2
+  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci
 endef
 TARGET_DEVICES += fenvi_wd204a
